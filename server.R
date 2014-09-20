@@ -36,6 +36,7 @@ shinyServer(function(input, output) {
     })
   #########################################################
     output$MaxErr <- renderPrint({
+      trainSize <- as.integer(input$trainRatio*nrow(dataset)/100)
       c(max(dataout()$Error[1:trainSize]),
       max(dataout()$Error[(trainSize+1):nrow(dataout())]) )
     })
