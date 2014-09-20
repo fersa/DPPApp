@@ -11,8 +11,9 @@ shinyUI(pageWithSidebar(
                 value=50, step=5, round=0),
     h4('Parameters of the Random Forest Model'),
     numericInput('mtry', 'mtry', min=1, max=6, value=2, step=1),
-    numericInput('ntree', 'Number of trees in the forest', min=100, max=1000, value=100, step=100)
-  ),
+    numericInput('ntree', 'Number of trees in the forest', min=100, max=1000, value=100, step=100),
+    p(em("Documentation:",a("DPPApp",href="Documentation.html")))
+    ),
   mainPanel(
     h4('Results'),
     h5('RMSE: Train - Test'),

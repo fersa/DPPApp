@@ -30,14 +30,14 @@ shinyServer(function(input, output) {
     }, height=200)
   #########################################################
     output$RMSE <- renderPrint({
-      trainSize <- as.integer(input$trainRatio*nrow(dataset)/100)  
+      trainSize <- as.integer(input$trainRatio*nrow(dataset)/100)
       c(sqrt(sum((dataout()$Error[1:trainSize])^2)/trainSize),
       sqrt(sum((dataout()$Error[(trainSize+1):nrow(dataout())])^2)/(nrow(dataout())-trainSize)))
     })
   #########################################################
     output$MaxErr <- renderPrint({
       trainSize <- as.integer(input$trainRatio*nrow(dataset)/100)
-      c(max(dataout()$Error[1:trainSize]),
-      max(dataout()$Error[(trainSize+1):nrow(dataout())]) )
+      c(max(abs(dataout()$Error[1:trainSize])),
+      max(abs(dataout()$Error[(trainSize+1):nrow(dataout())]) ) )
     })
 })

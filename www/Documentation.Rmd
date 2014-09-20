@@ -1,0 +1,43 @@
+---
+title: "Documentation"
+output: html_document
+---
+
+The application builds a Random Forest (RF) model to predict the value of an output variable Y as a function of the observed values of some input variables X1...X5.
+
+An RF model is an ensemble of trees (base models). For more details on Random Forests, see:
+
+- A basic and intuitive intro: http://goo.gl/syNeFT
+- An advanced and rigorous description, by its creator Leo Breiman: http://goo.gl/wQiDTc
+
+The data has already been pre-processed and stored in a data frame within the app.
+
+#Input
+
+The user can select the amount of data to be used for training the RF model: the model parameters are fitted to minimise the discrepancy between the predicted values and the actual values of the target variable **for the training set**. The rest of the available data are reserved to check the model generalisation capability (**test set**)
+
+Ideally, the error should be similar both in the training and the test sets. A much larger error in the test set is typically due to over-fitting.
+
+The user can also set the value of the parameters which control the model training process:
+
+- **mtry** is the number of variables to try in each split
+- **ntree** is the number of trees in the forest
+
+The default values provide an acceptable prediction, though not optimal. Check their influence  in the prediction accuracy by yourself!
+
+RF models with more trees take more time to train, though not more than a few seconds for this dataset.
+
+#Output
+
+- The Root Mean Squared Error (RMSE) and the Maximum Absolute Error for both the training and the test sets.
+
+- A plot with the observed target values (points) and the predicted ones (line).
+
+- A plot with the difference between the target and the prediction.
+
+In both plots, a vertical line is inserted to separate the training set (on the left of the line) from the test set (on the right). The error will typically be larger in the test set.
+
+The variable X1 is drawn in the horizontal axe. It corresponds to the number of days from the beginning of the observation period (the target variable is recorded at the same place, roughly once a week). 
+
+More info on the application on this presentation: http://fersa.github.io/DDPPresentation
+
